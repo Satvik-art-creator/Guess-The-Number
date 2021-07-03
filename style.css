@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: default;
+}
+
+/* ************************** Main Content ****************************** */
+
+main {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(105deg, cornflowerblue, blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main h1 {
+  font-family: "Big Shoulders Stencil Display", cursive;
+  font-size: 3em;
+  margin-bottom: 50px;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  animation: effect 0.3s ease-in-out 0.1s infinite;
+}
+
+@keyframes effect {
+  from {
+    color: blueviolet;
+    text-decoration-color: blueviolet;
+  }
+
+  to {
+    color: blue;
+    text-decoration-color: blue;
+  }
+}
+
+/* ************************** Section ****************************** */
+
+main section {
+  width: 50vw;
+  height: 50vh;
+  background: linear-gradient(rgb(134, 9, 9), rgb(29, 165, 29));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+main section i#clue {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+  color: rgb(255, 0, 212);
+  cursor: pointer;
+}
+
+::placeholder {
+  color: yellow;
+  font-weight: 520;
+  text-align: left;
+}
+
+main section form input {
+  margin-right: 20px;
+  height: 25px;
+  outline: none;
+  text-align: center;
+  color: yellow;
+  font-weight: 520;
+}
+
+main section form input[type="number"] {
+  width: 20vw;
+  padding: 0 14px;
+  border: none;
+  cursor: text;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+main section form input[type="submit"],
+main section div.mess button#restart {
+  width: 80px;
+  height: 30px;
+  background-color: rgb(19, 19, 133);
+  color: white;
+  border: 2px solid red;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+main section form input[type="submit"]:hover,
+main section div.mess button#restart:hover {
+  border: 2px solid rgb(19, 19, 133);
+  background-color: red;
+}
+
+main section div.mess {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+main section p {
+  margin-top: 60px;
+  font-size: 25px;
+  color: whitesmoke;
+  font-family: serif;
+}
+
+main section strong {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(127deg, yellow 50%, rgb(2, 43, 2) 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  animation: nextEffect 0.5s ease-in-out infinite;
+}
+
+@keyframes nextEffect {
+  from {
+    background-image: linear-gradient(127deg, yellow 50%, rgb(2, 43, 2) 50%);
+  }
+
+  to {
+    background-image: linear-gradient(127deg, rgb(2, 43, 2) 50%, yellow 50%);
+  }
+}
+
+main section button#restart {
+  margin-top: 15px;
+  display: none;
+}
+
+@media screen and (max-width: 920px) {
+  main section form {
+    position: relative;
+  }
+
+  main section form input[type="number"] {
+    display: block;
+    width: 100%;
+  }
+
+  main section form input[type="submit"] {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 19px;
+  }
+}
+
+/* ************************** Responsive ****************************** */
+
+@media screen and (max-width: 450px) {
+  main section form{
+    width: 45vw;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  main section{
+    width: 60vw;
+  }
+
+  main section form{
+    width: 55vw;
+  }
+}
