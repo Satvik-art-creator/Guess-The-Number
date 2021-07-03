@@ -23,7 +23,7 @@ main h1 {
   margin-bottom: 50px;
   text-decoration: underline;
   text-decoration-style: wavy;
-  animation: effect 0.3s ease-in-out 0.1s infinite;
+  animation: effect 0.7s ease-in-out 0.1s infinite;
 }
 
 @keyframes effect {
@@ -72,6 +72,7 @@ main section form input {
   height: 25px;
   outline: none;
   text-align: center;
+  background-color: #000;
   color: yellow;
   font-weight: 520;
 }
