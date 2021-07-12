@@ -1,91 +1,50 @@
-// console.log("HELLO WORLD!");
+const select = (query) => document.querySelector(query);
+let input =  select(".form .input input");
+let won =  select(".won");
+let wonMess = select(".won h1");
+let form =  select(".form");
+let errorMsg = select(".input-error-check");
+let hint = select('.hint p');
+let answer = Math.ceil(Math.random() * 99);
+// console.log(answer);
+let trial = 0;
 
-//? Glbal Variables
-var generateNum = (min, max) => Math.floor(Math.random() * (max-min+1))+min;
+select("#check").addEventListener('click', () => {
+    if (!Number(input.value) || input.value <= 0 || input.value >= 100) errorMsg.classList.add('show'); 
+    else {
+        errorMsg.classList.remove('show')
+       
+        trial++;
+        // console.log(trial);
 
-var guessingNum = generateNum(1, 100);
-// console.log(guessingNum);
+        let inputNumber = Number(input.value); // this is the user's entered number
 
-var sub = document.getElementById("submit");
-var playerNum = document.getElementById("input");
-var show = document.getElementById("showMessage");
-var re = document.getElementById("restart");
-var hint = document.getElementById("clue");
-var attempt = 0;
-var index = 0;
+        if (inputNumber > answer) {
+            hint.innerHTML = "you need to guess a <span>Smaller</span> number";
+        }
+        else if (inputNumber < answer) {
+            hint.innerHTML = "you need to guess a <span>Greater</span> number";
+        }
+        if (inputNumber === answer) {
+            won.classList.add("show");
+            form.classList.add("hide");
 
-function getNum(){
-    //? round off decimal numbers
-    if(playerNum.value - Math.round(playerNum.value) != 0){
-        alert("Decimal number will round off!!");
-        playerNum.value = Math.round(playerNum.value);
-    }
-
-    // console.log(playerNum.value);
-
-    //? function to display messages
-    function showMessage(x){
-        if(x <= 0 || x >= 100 || x === ""){
-            show.innerHTML = "Write number between 0 to 100";
-            attempt += 0;
-        } else if(x > guessingNum){
-            // console.log("Write Lower Number!");
-            show.innerHTML = "Write Lower Number!";
-            hint.style.color = "rgb(255, 0, 212)";
-            attempt += 1;
-        } else if(x < guessingNum){
-            // console.log("Write Greater Number!");
-            show.innerHTML = "Write Greater Number!";
-            hint.style.color = "rgb(255, 0, 212)";
-            attempt += 1;
-        } else{
-            // console.log("Your guess is correct!!");
-            attempt += 1;
-
-            playerNum.style.display = "none";
-            sub.style.display = "none";
-            hint.style.color = "transparent";
-
-            if(attempt === 1){
-                show.innerHTML = `<strong>NOICE!! </strong>😎 <br> Your guess is correct!! <br> Your attempt is ${attempt} only`;
-            } else if(attempt === 2){
-                show.innerHTML = `<strong>GOOD! </strong>😃 <br> Your guess is correct!! <br> Your attempts are ${attempt} only`;
+            if(trial === 1){
+                wonMess.innerHTML = `<strong>NOICE!! </strong>😎 <br> You guessed the number in ${trial} attempt Only`;
+            } else if(trial === 2){
+                wonMess.innerHTML = `<strong>GOOD! </strong>😃 <br> You guessed the number in ${trial} attempts`;
             }else{
-                show.innerHTML = `Your guess is correct!! <br> Your attempts are ${attempt}`;
+                wonMess.innerHTML = `You guessed the number in ${trial} attempts`;
             }
-
-            re.style.display = "block";
-
-            re.addEventListener("click", () => {
-                playerNum.style.display = "inline-block";
-                sub.style.display = "inline-block";
-                re.style.display = "none";
-                attempt = 0;
-
-                show.innerHTML = "";
-            
-                return guessingNum = Math.floor(Math.random() * 100);
-            });
         }
-
-        if(attempt >= 1) {
-            hint.style.display = "inline-block";
-    
-            hint.addEventListener("click", () => {
-                if(guessingNum <= 50){
-                    alert("The Number is less than 50 or equal to 50");
-                } else{
-                    alert("The Number is greater than 50");
-                }
-            });
-        } else{
-            hint.style.display = "none";
-        }
+        input.value = '';
     }
+})
 
-    showMessage(playerNum.value);
-    document.getElementById("form").reset();
-
-    // console.log(attempt);
-}
-
+select("#replay").addEventListener('click', () => {
+    answer = Math.ceil(Math.random() * 99);
+    trial = 0;
+    won.classList.remove("show");
+    form.classList.remove("hide");
+    hint.innerHTML = "Guess a number between 1 & 100. <br>  Hints will appear later on!!!";
+})

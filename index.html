@@ -5,35 +5,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ONLY JAVASCRIPT GAME</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700&display=swap"
-        rel="stylesheet">
+    <title>Guess The Number</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="myFavicon.ico">
 </head>
 
 <body>
+    <div class="hint">
+        <span class="hint-title">Hint</span>
+        <p>Guess a number between 1 & 100. <br>  Hints will appear later on!!!</p>
+    </div>
     <main>
-        <h1>Guess the Number</h1>
-
-        <section>
-            <i class="fas fa-lightbulb" id="clue"></i>
-
-            <form action="" id="form">
-                <input type="number" title="Write number between 1 to 100" placeholder="Guess between 1 to 100" id="input" required autocomplete="off">
-                <input type="submit" onclick="getNum()" id="submit">
-            </form>
-
-            <div class="mess">
-                <p id="showMessage"></p>
-                <button id="restart">Restart</button>
+        <div class="title">
+            <h1>Guess The Number</h1>
+            <h3>Between 1 & 100</h3>
+        </div>
+        <div class="form">
+            <div class="input">
+                <input type="number" placeholder="Enter your Guess">
+                <span class="input-error-check">Enter a Number between 1 to 100</span>
             </div>
-        </section>
+            <div class="check">
+                <button id="check">CHECK</button>
+            </div>
+        </div>
+        <div class="won">
+            <h1 class="tries"></h1>
+            <button id="replay">REPlAY</button>
+        </div>
     </main>
+
 
     <script src="script.js"></script>
 </body>

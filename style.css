@@ -1,187 +1,197 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  cursor: default;
+:root{
+    --extra: calc(100% + 7px);
 }
 
-/* ************************** Main Content ****************************** */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5em;
+    background: linear-gradient(238deg, #590af5, #d27428, #d65205, #d83f3f, #810af5, #ab0af5, #ad049f);
+    background-size: 1000% 1000%;
+    animation: bg-gradient 33s ease infinite;
+    box-sizing: border-box;
+}
+
+@keyframes bg-gradient {
+    0%{background-position:0% 99%}
+    50%{background-position:100% 2%}
+    100%{background-position:0% 99%}
+}
+
+
+h1 , h3 , button {
+    color: #fff;
+}
+
+.hint {
+    margin-bottom: 20px;
+    padding: 1.5em 2em;
+    padding-top: .1em;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 7px;
+    box-shadow: 0px 0px 20px 10px rgb(0 0 0 / 8%);
+    border: 10px solid #ffffff14;
+    color: #fff;
+}
+
+.hint .hint-title {
+    text-align: center;
+    font: 1.7rem;
+    text-align: center;
+    display: block;
+    font-weight: bolder;
+    margin-bottom: .7em;
+}
+
+.hint p{
+    text-align: center;
+}
 
 main {
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(105deg, cornflowerblue, blue);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    padding: 2em;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 7px;
+    box-shadow: 9px 7px 5px 10px #12121254;
+    border: 20px solid #ffffff14;
 }
 
-main h1 {
-  font-family: "Big Shoulders Stencil Display", cursive;
-  font-size: 3em;
-  margin-bottom: 50px;
-  text-decoration: underline;
-  text-decoration-style: wavy;
-  animation: effect 0.7s ease-in-out 0.1s infinite;
+.title {
+    flex-direction: column;
 }
 
-@keyframes effect {
-  from {
-    color: blueviolet;
-    text-decoration-color: blueviolet;
-  }
-
-  to {
-    color: blue;
-    text-decoration-color: blue;
-  }
+.form > div, .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* ************************** Section ****************************** */
-
-main section {
-  width: 50vw;
-  height: 50vh;
-  background: linear-gradient(rgb(134, 9, 9), rgb(29, 165, 29));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+.title h1 {
+    margin-bottom: .3em;
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: center;
 }
 
-main section i#clue {
-  display: none;
-  position: absolute;
-  left: 50%;
-  top: 10px;
-  transform: translateX(-50%);
-  color: rgb(255, 0, 212);
-  cursor: pointer;
+.title h3 {
+    margin-bottom: .5em;
+    font-weight: 100;
 }
 
-::placeholder {
-  color: yellow;
-  font-weight: 520;
-  text-align: left;
+.form input{
+    border: none;
+    outline: none;
+    padding: .3em 0em;
+    padding-left: 1em;
+    font-size: 1.5rem;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.7);
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
-main section form input {
-  margin-right: 20px;
-  height: 25px;
-  outline: none;
-  text-align: center;
-  background-color: #000;
-  color: yellow;
-  font-weight: 520;
+.form input:focus{
+    border: 1px solid #d5bebe;
 }
 
-main section form input[type="number"] {
-  width: 20vw;
-  padding: 0 14px;
-  border: none;
-  cursor: text;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+.form input::-webkit-inner-spin-button,
+.form input::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-main section form input[type="submit"],
-main section div.mess button#restart {
-  width: 80px;
-  height: 30px;
-  background-color: rgb(19, 19, 133);
-  color: white;
-  border: 2px solid red;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 15px;
+.form input::placeholder{
+color: rgba(255, 255, 255, 0.664);
 }
 
-main section form input[type="submit"]:hover,
-main section div.mess button#restart:hover {
-  border: 2px solid rgb(19, 19, 133);
-  background-color: red;
-}
-
-main section div.mess {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-main section p {
-  margin-top: 60px;
-  font-size: 25px;
-  color: whitesmoke;
-  font-family: serif;
-}
-
-main section strong {
-  font-size: 30px;
-  font-family: Arial, Helvetica, sans-serif;
-  background-image: linear-gradient(127deg, yellow 50%, rgb(2, 43, 2) 50%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-  animation: nextEffect 0.5s ease-in-out infinite;
-}
-
-@keyframes nextEffect {
-  from {
-    background-image: linear-gradient(127deg, yellow 50%, rgb(2, 43, 2) 50%);
-  }
-
-  to {
-    background-image: linear-gradient(127deg, rgb(2, 43, 2) 50%, yellow 50%);
-  }
-}
-
-main section button#restart {
-  margin-top: 15px;
-  display: none;
-}
-
-@media screen and (max-width: 920px) {
-  main section form {
+.won button,
+.form button {
     position: relative;
-  }
+    border:3.5px solid #d5bebe;
+    outline: none;
+    padding: .6em 2.5em;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: all .15s linear;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.548);
+}
 
-  main section form input[type="number"] {
-    display: block;
-    width: 100%;
-  }
+.form button:hover {
+    background-color: transparent;
+}
 
-  main section form input[type="submit"] {
+.form button::before {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 19px;
-  }
+    content: '';
+    height: var(--extra);
+    width: var(--extra);
+    border: 1.4px solid #d5bebe;
+    left: -2px;
+    top: -2px;
 }
 
-/* ************************** Responsive ****************************** */
-
-@media screen and (max-width: 450px) {
-  main section form{
-    width: 45vw;
-  }
+.won button:hover,
+.form button:hover {
+    background-color: #fff;
+    color: #000;
 }
 
-@media screen and (max-width: 380px) {
-  main section{
-    width: 60vw;
-  }
+.won button{
+    margin-top: 15px;
+}
 
-  main section form{
-    width: 55vw;
-  }
+@media (max-width: 400px) {
+    main {
+        padding: .8em;
+        border-width: 10px;
+    }
+    .form input {
+        max-width: 300px;
+        box-sizing: border-box;
+    }
+    .hint {
+        padding: .7em;
+    }
+    .title h1 {
+        font-size: 1.9rem;
+    }
+}
+.form .input {
+    flex-direction: column;
+    margin: 1.2em 0em;
+}
+
+.input-error-check {
+    margin-top: 5px;
+    margin-left: -80px;
+    display: none;
+}
+
+.input-error-check.show {
+    display: block;
+    color: red;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.698);
+}
+.form.hide {
+    display: none;
+}
+.won {
+    text-align: center;
+    display: none;
+    color: #fff;
+}
+
+.won.show {
+    display: block;
+}
+.hint p span,
+.tries {
+    color: rgb(7, 246, 107);
+    font-weight: bolder;
 }
